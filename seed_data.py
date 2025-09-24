@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import os
 import json
 
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://admin:Dasun%402013@cluster01.dusr25j.mongodb.net/?retryWrites=true&w=majority&appName=Cluster01")
 client = MongoClient(MONGO_URI)
 db = client["citizen_portal"]
 services_col = db["services"]
