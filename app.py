@@ -160,27 +160,6 @@ def admin_engagements():
     return jsonify(items)
 
 # Export engagements as CSV
-# @app.route("/api/admin/export_csv")
-# @admin_required
-# def export_csv():
-#     cursor = eng_col.find()
-#     si = StringIO()
-#     cw = csv.writer(si)
-#     cw.writerow(["user_id","age","job","desire","question","service","timestamp"])
-#     for e in cursor:
-#         cw.writerow([
-#             e.get("user_id"), e.get("age"), e.get("job"),
-#             ",".join(e.get("desires") or []),
-#             e.get("question_clicked"), e.get("service"),
-#             e.get("timestamp").isoformat() if e.get("timestamp") else ""
-#         ])
-#     si.seek(0)
-#     return send_file(
-#         StringIO(si.read()),
-#         mimetype="text/csv",
-#         as_attachment=True,
-#         download_name="engagements.csv"
-#     )
 @app.route("/api/admin/export_csv")
 @admin_required
 def export_csv():
