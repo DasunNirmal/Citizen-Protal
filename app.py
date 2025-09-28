@@ -4,8 +4,6 @@ from flask_cors import CORS
 from pymongo import MongoClient
 from bson import ObjectId
 from datetime import datetime
-from io import StringIO
-import csv
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -161,27 +159,56 @@ def admin_engagements():
         items.append(e)
     return jsonify(items)
 
+# Export engagements as CSV
+# @app.route("/api/admin/export_csv")
+# @admin_required
+# def export_csv():
+#     cursor = eng_col.find()
+#     si = StringIO()
+#     cw = csv.writer(si)
+#     cw.writerow(["user_id","age","job","desire","question","service","timestamp"])
+#     for e in cursor:
+#         cw.writerow([
+#             e.get("user_id"), e.get("age"), e.get("job"),
+#             ",".join(e.get("desires") or []),
+#             e.get("question_clicked"), e.get("service"),
+#             e.get("timestamp").isoformat() if e.get("timestamp") else ""
+#         ])
+#     si.seek(0)
+#     return send_file(
+#         StringIO(si.read()),
+#         mimetype="text/csv",
+#         as_attachment=True,
+#         download_name="engagements.csv"
+#     )
 @app.route("/api/admin/export_csv")
 @admin_required
 def export_csv():
-    cursor = eng_col.find()
-    si = StringIO()
-    cw = csv.writer(si)
-    cw.writerow(["user_id","age","job","desire","question","service","timestamp"])
-    for e in cursor:
-        cw.writerow([
-            e.get("user_id"), e.get("age"), e.get("job"),
-            ",".join(e.get("desires") or []),
-            e.get("question_clicked"), e.get("service"),
+    from flask import make_response
+    
+    # Build CSV content as string
+    csv_lines = ["user_id,age,job,desires,question,service,timestamp"]
+    
+    for e in eng_col.find():
+        desires = "|".join(e.get("desires") or [])
+        row = [
+            str(e.get("user_id") or ""),
+            str(e.get("age") or ""),
+            str(e.get("job") or ""),
+            desires,
+            str(e.get("question_clicked") or "").replace(',', ';'),
+            str(e.get("service") or "").replace(',', ';'),
             e.get("timestamp").isoformat() if e.get("timestamp") else ""
-        ])
-    si.seek(0)
-    return send_file(
-        StringIO(si.read()),
-        mimetype="text/csv",
-        as_attachment=True,
-        download_name="engagements.csv"
-    )
+        ]
+        csv_lines.append(",".join(row))
+    
+    csv_content = "\n".join(csv_lines)
+    
+    response = make_response(csv_content)
+    response.headers["Content-Type"] = "text/csv"
+    response.headers["Content-Disposition"] = "attachment; filename=engagements.csv"
+    
+    return response
 
 # Admin CRUD for services (create/update/delete)
 @app.route("/api/admin/services", methods=["GET","POST"])
