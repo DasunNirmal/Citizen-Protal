@@ -1,83 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citizen Services Portal - Modern AI-Powered</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Citizen Services Portal — Lavender</title>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <h2>Categories</h2>
-            <div id="category-list"></div>
-            <div class="lang-switch">
-                <button onclick="setLang('en')">EN</button>
-                <button onclick="setLang('si')">SI</button>
-                <button onclick="setLang('ta')">TA</button>
-            </div>
-            <div class="ads" id="ads-area"></div>
-        </aside>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-badge">CP</div>
+        <div class="brand-text">
+          <h1>Citizen Portal</h1>
+          <p class="subtitle">Guidance · Forms · AI assistant</p>
+        </div>
+      </div>
 
-        <!-- MIDDLE SECTION -->
-        <section class="middle">
-            <div class="search-row">
-                <input id="search-input" placeholder="Search services or ask..." />
-                <button onclick="openChat()">Ask (AI)</button>
-            </div>
-            <h2 id="sub-title">Select a Category</h2>
-            <ul id="sub-list"></ul>
-            <h2 id="q-title">Select Question</h2>
-            <ul id="question-list"></ul>
-        </section>
+      <div class="header-actions">
+        <div class="lang-pill">
+          <button class="lang-btn" onclick="setLang('en')" id="lang-en">EN</button>
+          <button class="lang-btn" onclick="setLang('si')" id="lang-si">SI</button>
+          <button class="lang-btn" onclick="setLang('ta')" id="lang-ta">TA</button>
+        </div>
+      </div>
+    </header>
 
-        <!-- MAIN CONTENT -->
-        <main class="content">
-            <div id="answer-box"></div>
-            
-            <!-- Profile Modal -->
-            <div id="profile-modal" class="modal" style="display:none;">
-                <div class="modal-content">
-                    <h3 id="profile-step-title">Tell us about you</h3>
-                    
-                    <div id="profile-step-1" class="profile-step">
-                        <input id="p_name" placeholder="Full name"/>
-                        <input id="p_age" placeholder="Age" type="number"/>
-                        <button onclick="profileNext(1)">Next</button>
-                    </div>
-                    
-                    <div id="profile-step-2" class="profile-step" style="display:none;">
-                        <input id="p_email" placeholder="Email"/>
-                        <input id="p_phone" placeholder="Mobile"/>
-                        <button onclick="profileBack(2)">Back</button>
-                        <button onclick="profileNext(2)">Next</button>
-                    </div>
-                    
-                    <div id="profile-step-3" class="profile-step" style="display:none;">
-                        <input id="p_job" placeholder="Job role / workplace"/>
-                        <button onclick="profileBack(3)">Back</button>
-                        <button onclick="profileSubmit()">Finish</button>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <main class="layout">
+      <!-- Sidebar / categories -->
+      <aside class="sidebar glass">
+        <h2 class="section-title">Categories</h2>
+        <div id="category-list" class="category-list"></div>
 
-        <!-- CHAT PANEL -->
-        <aside class="chat-panel" id="chat-panel">
-            <div class="chat-header">
-                <h3>AI Assistant</h3>
-                <button onclick="closeChat()">×</button>
-            </div>
-            <div class="chat-body" id="chat-body"></div>
-            <div class="chat-input">
-                <input id="chat-text" placeholder="Type your question..." oninput="autosuggest(this.value)"/>
-                <button onclick="sendChat()">Send</button>
-            </div>
-            <div id="suggestions" class="suggestions"></div>
-        </aside>
+        <div class="ads-area" id="ads-area"></div>
+      </aside>
+
+      <!-- Main content -->
+      <section class="main glass">
+        <div class="search-row">
+          <input id="search-input" placeholder="Search services or ask a question..." />
+          <button class="btn" id="ask-btn" onclick="openChat()">Ask AI</button>
+        </div>
+
+        <div class="content-grid">
+          <div class="card" id="service-card">
+            <h3 id="sub-title">Select a Category</h3>
+            <ul id="sub-list" class="compact-list"></ul>
+          </div>
+
+          <div class="card" id="question-card">
+            <h3 id="q-title">Select Question</h3>
+            <ul id="question-list" class="compact-list"></ul>
+          </div>
+
+          <div class="card" id="answer-card">
+            <div id="answer-box" class="answer-box"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Floating chat toggle -->
+  <button id="chat-toggle" aria-label="Open chat" title="AI Assistant">💬</button>
+
+  <!-- Chat popup -->
+  <div id="chat-popup" class="chat-popup" aria-hidden="true">
+    <div class="chat-header">
+      <div>AI Assistant</div>
+      <button class="close-chat" onclick="closeChat()">×</button>
     </div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="chat-controls">
+      <input id="chat-text" placeholder="Ask anything..." oninput="autosuggest(this.value)" />
+      <button class="btn" onclick="sendChat()">Send</button>
+    </div>
+    <div id="suggestions" class="suggestions"></div>
+  </div>
 
-    <script src="/static/script.js"></script>
+  <script src="/static/script.js"></script>
 </body>
 </html>
