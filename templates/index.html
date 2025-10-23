@@ -2,86 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Citizen Services Portal — Lavender</title>
-
-  <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/static/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Services Portal - AI Powered</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-  <div class="app-shell">
-    <header class="app-header">
-      <div class="brand">
-        <div class="brand-badge">CP</div>
-        <div class="brand-text">
-          <h1>Citizen Portal</h1>
-          <p class="subtitle">Guidance · Forms · AI assistant</p>
+  <div class="container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2 class="sidebar-title">CATEGORIES</h2>
+      <div id="category-list" class="category-list"></div>
+
+      <div class="ads-section">
+        <h3>Announcements</h3>
+        <div id="ads-area" class="ads-area">
+          <!-- SVG-based ads fallback -->
+          <div class="ad-card">
+            <i data-lucide="heart-pulse" class="ad-icon"></i>
+            <div>
+              <h4>Public Health Notice</h4>
+              <p>Stay updated on vaccination and health programs.</p>
+            </div>
+          </div>
+          <div class="ad-card">
+            <i data-lucide="users" class="ad-icon"></i>
+            <div>
+              <h4>Community Cleanup</h4>
+              <p>Join your local initiative to keep the city clean.</p>
+            </div>
+          </div>
+          <div class="ad-card">
+            <i data-lucide="graduation-cap" class="ad-icon"></i>
+            <div>
+              <h4>Scholarship Offers</h4>
+              <p>Apply now for national scholarship programs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="main-content">
+      <div class="top-bar">
+        <div class="search-box">
+          <i data-lucide="search" class="search-icon"></i>
+          <input id="search-input" placeholder="Search for services or questions..." />
+        </div>
+        
+        <div class="top-actions">
+          <div class="lang-switch">
+            <button data-lang="en">EN</button>
+            <button data-lang="si">සිං</button>
+            <button data-lang="ta">TA</button>
+          </div>
+          <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
+            <i data-lucide="moon"></i>
+          </button>
         </div>
       </div>
 
-      <div class="header-actions">
-        <div class="lang-pill">
-          <button class="lang-btn" onclick="setLang('en')" id="lang-en">EN</button>
-          <button class="lang-btn" onclick="setLang('si')" id="lang-si">SI</button>
-          <button class="lang-btn" onclick="setLang('ta')" id="lang-ta">TA</button>
-        </div>
-      </div>
-    </header>
+      <section id="content-section">
+        <h2 id="sub-title" class="section-title">Select a Category</h2>
+        <ul id="sub-list" class="sub-list"></ul>
 
-    <main class="layout">
-      <!-- Sidebar / categories -->
-      <aside class="sidebar glass">
-        <h2 class="section-title">Categories</h2>
-        <div id="category-list" class="category-list"></div>
+        <h2 id="q-title" class="section-title">Select Question</h2>
+        <ul id="question-list" class="question-list"></ul>
 
-        <div class="ads-area" id="ads-area"></div>
-      </aside>
-
-      <!-- Main content -->
-      <section class="main glass">
-        <div class="search-row">
-          <input id="search-input" placeholder="Search services or ask a question..." />
-          <button class="btn" id="ask-btn" onclick="openChat()">Ask AI</button>
-        </div>
-
-        <div class="content-grid">
-          <div class="card" id="service-card">
-            <h3 id="sub-title">Select a Category</h3>
-            <ul id="sub-list" class="compact-list"></ul>
-          </div>
-
-          <div class="card" id="question-card">
-            <h3 id="q-title">Select Question</h3>
-            <ul id="question-list" class="compact-list"></ul>
-          </div>
-
-          <div class="card" id="answer-card">
-            <div id="answer-box" class="answer-box"></div>
-          </div>
+        <div id="answer-box" class="answer-box">
+          <p>Select a question to see details here.</p>
         </div>
       </section>
     </main>
-  </div>
 
-  <!-- Floating chat toggle -->
-  <button id="chat-toggle" aria-label="Open chat" title="AI Assistant">💬</button>
+    <!-- CHAT BUTTON -->
+    <button id="chat-float" class="chat-float" title="Ask AI">
+      <i data-lucide="message-circle"></i>
+    </button>
 
-  <!-- Chat popup -->
-  <div id="chat-popup" class="chat-popup" aria-hidden="true">
-    <div class="chat-header">
-      <div>AI Assistant</div>
-      <button class="close-chat" onclick="closeChat()">×</button>
-    </div>
-    <div class="chat-body" id="chat-body"></div>
-    <div class="chat-controls">
-      <input id="chat-text" placeholder="Ask anything..." oninput="autosuggest(this.value)" />
-      <button class="btn" onclick="sendChat()">Send</button>
-    </div>
-    <div id="suggestions" class="suggestions"></div>
+    <!-- CHAT DRAWER -->
+    <div id="chat-overlay" class="chat-overlay"></div>
+    <aside id="chat-drawer" class="chat-drawer">
+      <div class="chat-header">
+        <h3>AI Assistant</h3>
+        <button id="chat-close"><i data-lucide="x"></i></button>
+      </div>
+      <div id="chat-body" class="chat-body"></div>
+      <div class="chat-input">
+        <input id="chat-text" placeholder="Type your question..." />
+        <button id="chat-send"><i data-lucide="send"></i></button>
+      </div>
+    </aside>
+
   </div>
 
   <script src="/static/script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
