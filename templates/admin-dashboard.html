@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Citizen Portal</title>
+    <link rel="stylesheet" href="/static/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span>Citizen Portal</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-page="officers">
+                <i class="fas fa-user-tie"></i>
+                <span>Officers</span>
+            </a>
+            <a href="#" class="nav-item" data-page="services">
+                <i class="fas fa-cogs"></i>
+                <span>Services</span>
+            </a>
+            <a href="#" class="nav-item" data-page="categories">
+                <i class="fas fa-folder"></i>
+                <span>Categories</span>
+            </a>
+            <a href="#" class="nav-item" data-page="ads">
+                <i class="fas fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+            <a href="#" class="nav-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="top-header">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="header-right">
+                <div class="theme-toggle-header">
+                    <button class="theme-btn-header" data-theme="light" title="Light Mode">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="theme-btn-header active" data-theme="dark" title="Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <div class="user-info">
+                    <span class="user-name" id="userName">Admin</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Dashboard Content -->
+        <div class="content-area">
+            <!-- Dashboard Page -->
+            <div id="page-dashboard" class="page-content active">
+                <h1 class="page-title">Dashboard</h1>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Total Users</span>
+                            <i class="fas fa-users stat-icon"></i>
+                        </div>
+                        <div class="stat-value" id="statTotalUsers">-</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Active Services</span>
+                            <i class="fas fa-briefcase stat-icon"></i>
+                        </div>
+                        <div class="stat-value" id="statActiveServices">-</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Total Questions</span>
+                            <i class="fas fa-question-circle stat-icon"></i>
+                        </div>
+                        <div class="stat-value" id="statTotalQuestions">-</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Engagements</span>
+                            <i class="fas fa-chart-line stat-icon"></i>
+                        </div>
+                        <div class="stat-value" id="statEngagements">-</div>
+                    </div>
+                </div>
+                
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Users by Age Group</h3>
+                        </div>
+                        <div class="card-content">
+                            <canvas id="ageChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Jobs Distribution</h3>
+                        </div>
+                        <div class="card-content">
+                            <canvas id="jobChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Most Accessed Services</h3>
+                        </div>
+                        <div class="card-content">
+                            <canvas id="serviceChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Most Asked Questions</h3>
+                        </div>
+                        <div class="card-content">
+                            <canvas id="questionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Engagements -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Engagements</h3>
+                        <button class="export-btn" id="exportCsv">
+                            <i class="fas fa-download"></i>
+                            Export CSV
+                        </button>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table class="data-table" id="engTable">
+                                <thead>
+                                    <tr>
+                                        <th>Age</th>
+                                        <th>Job</th>
+                                        <th>Desires</th>
+                                        <th>Question</th>
+                                        <th>Service</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Officers Page -->
+            <div id="page-officers" class="page-content">
+                <div class="page-header">
+                    <h1 class="page-title">Officers</h1>
+                    <button class="add-btn" id="addOfficerBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        Add Officer
+                    </button>
+                </div>
+                
+                <div class="table-card">
+                    <div class="card-content">
+                        <div class="table-filters">
+                            <input type="text" class="filter-input" id="officerFilter" placeholder="Filter by name...">
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table" id="officersTable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Role</th>
+                                        <th>Ministry</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services Page -->
+            <div id="page-services" class="page-content">
+                <div class="page-header">
+                    <h1 class="page-title">Services</h1>
+                    <button class="add-btn" id="addServiceBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        Add Service
+                    </button>
+                </div>
+                
+                <div class="table-card">
+                    <div class="card-content">
+                        <div class="table-filters">
+                            <input type="text" class="filter-input" id="serviceFilter" placeholder="Filter by name...">
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table" id="servicesTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Subservices</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categories Page -->
+            <div id="page-categories" class="page-content">
+                <div class="page-header">
+                    <h1 class="page-title">Categories</h1>
+                    <button class="add-btn" id="addCategoryBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        Add Category
+                    </button>
+                </div>
+                
+                <div class="table-card">
+                    <div class="card-content">
+                        <div class="table-filters">
+                            <input type="text" class="filter-input" id="categoryFilter" placeholder="Filter by name...">
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table" id="categoriesTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name (EN)</th>
+                                        <th>Name (SI)</th>
+                                        <th>Name (TA)</th>
+                                        <th>Ministries</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Announcements/Ads Page -->
+            <div id="page-ads" class="page-content">
+                <div class="page-header">
+                    <h1 class="page-title">Announcements</h1>
+                    <button class="add-btn" id="addAdBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        Add Announcement
+                    </button>
+                </div>
+                
+                <div class="ads-grid">
+                    <!-- Ads will be loaded here dynamically -->
+                </div>
+            </div>
+            
+            <!-- Settings Page -->
+            <div id="page-settings" class="page-content">
+                <h1 class="page-title">Settings</h1>
+                
+                <div class="settings-card" style="margin-top: 2rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">AI Search Index</h3>
+                        <p class="card-description">
+                            Manually trigger a rebuild of the AI search index. This is useful when large amounts of content have been updated.
+                        </p>
+                    </div>
+                    <div class="card-content">
+                        <button class="rebuild-btn" id="rebuildIndexBtn">
+                            <i class="fas fa-bolt"></i>
+                            <span>Rebuild AI Index</span>
+                        </button>
+                        <div id="rebuildStatus" class="rebuild-status" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/admin-dashboard.js"></script>
+</body>
+</html>
