@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Citizen Portal</title>
+    <link rel="stylesheet" href="/static/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-page">
+    <main class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-container">
+                </div>
+                <h1 class="login-title">Citizen Portal Admin</h1>
+                <p class="login-description">Enter your credentials to access the dashboard</p>
+            </div>
+            
+            <div class="login-content">
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="username" 
+                            placeholder="Enter your username"
+                            required
+                            autocomplete="username"
+                        />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                        />
+                    </div>
+                    
+                    <div id="error-message" class="error-message" style="display: none;"></div>
+                    
+                    <button type="submit" class="login-button" id="login-btn">
+                        <span class="button-text">Sign In</span>
+                        <i class="fas fa-arrow-right button-icon"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <script src="/static/admin-login.js"></script>
+</body>
+</html>
