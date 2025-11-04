@@ -1,0 +1,82 @@
+[
+  {
+    "doc_id": "ministry_it::it_cert::How to apply for an IT certificate?",
+    "service_id": "ministry_it",
+    "subservice_id": "it_cert",
+    "title": "How to apply for an IT certificate?",
+    "content": "Ministry of IT & Digital Affairs | IT Certificates | How to apply for an IT certificate? | Fill the online form and upload your NIC. Processing takes 5-7 business days.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/it_cert_form.pdf"
+      ],
+      "location": "https://maps.google.com/?q=Ministry+of+IT+Colombo",
+      "instructions": "Visit the digital portal at https://example.com, register and submit your application."
+    }
+  },
+  {
+    "doc_id": "ministry_it::it_cert::What documents are required?",
+    "service_id": "ministry_it",
+    "subservice_id": "it_cert",
+    "title": "What documents are required?",
+    "content": "Ministry of IT & Digital Affairs | IT Certificates | What documents are required? | NIC, educational certificates, and proof of residence.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "All documents must be in PDF format."
+    }
+  },
+  {
+    "doc_id": "ministry_it::digital_services::How to access government e-services?",
+    "service_id": "ministry_it",
+    "subservice_id": "digital_services",
+    "title": "How to access government e-services?",
+    "content": "Ministry of IT & Digital Affairs | Digital Services | How to access government e-services? | Visit the portal at https://services.gov.lk and login with your digital ID.",
+    "metadata": {
+      "downloads": [
+        "/static/guides/e-services-guide.pdf"
+      ],
+      "location": "https://maps.google.com/?q=IT+Ministry+Services+Center",
+      "instructions": "First-time users need to register with their NIC."
+    }
+  },
+  {
+    "doc_id": "ministry_education::schools::How to register a school?",
+    "service_id": "ministry_education",
+    "subservice_id": "schools",
+    "title": "How to register a school?",
+    "content": "Ministry of Education | Schools | How to register a school? | Complete registration form and submit documents to the Ministry.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/school_reg.pdf"
+      ],
+      "location": "https://maps.google.com/?q=Ministry+of+Education+Colombo",
+      "instructions": "Processing time is 30 days."
+    }
+  },
+  {
+    "doc_id": "ministry_education::exams::How to check exam results?",
+    "service_id": "ministry_education",
+    "subservice_id": "exams",
+    "title": "How to check exam results?",
+    "content": "Ministry of Education | Exams & Results | How to check exam results? | Visit results.moe.gov.lk and enter your registration number.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Results are released 6 weeks after the exam."
+    }
+  },
+  {
+    "doc_id": "ministry_health::health_services::How to register at a health center?",
+    "service_id": "ministry_health",
+    "subservice_id": "health_services",
+    "title": "How to register at a health center?",
+    "content": "Ministry of Health | Health Services | How to register at a health center? | Visit your nearest health center with NIC and proof of address.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/health_reg.pdf"
+      ],
+      "location": "https://maps.google.com/?q=Health+Centers+Near+Me",
+      "instructions": "Registration is free and can be completed in 15 minutes."
+    }
+  }
+]
