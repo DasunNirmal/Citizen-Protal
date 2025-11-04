@@ -133,7 +133,164 @@ function showAnswer(service, sub, q) {
 
   let html = `<h3>${q.q?.[lang] || q.q?.en}</h3>`;
   html += `<p>${q.answer?.[lang] || q.answer?.en}</p>`;
+  
+  // Add downloads if available
+  if (q.downloads && q.downloads.length) {
+    html += `<p><b>Downloads:</b> ${q.downloads.map(d => `<a href="${d}" target="_blank">${d.split("/").pop()}</a>`).join(", ")}</p>`;
+  }
+  
+  // Add location if available
+  if (q.location) {
+    html += `<p><b>Location:</b> <a href="${q.location}" target="_blank">View Map</a></p>`;
+  }
+  
+  // Add instructions if available
+  if (q.instructions) {
+    html += `<p><b>Instructions:</b> ${q.instructions}</p>`;
+  }
+  
   answerBox.innerHTML = html;
+
+  // Show engagement modal instead of prompts
+  setTimeout(() => {
+    showEngagementModal(q);
+  }, 300);
+}
+
+/* ---------------------------
+   ENGAGEMENT MODAL
+--------------------------- */
+function showEngagementModal(question) {
+  console.log("🎯 Showing engagement modal...");
+  
+  // Create modal overlay
+  const overlay = document.createElement('div');
+  overlay.id = 'engagement-overlay';
+  overlay.className = 'engagement-overlay';
+  
+  // Create modal
+  const modal = document.createElement('div');
+  modal.className = 'engagement-modal';
+  modal.innerHTML = `
+    <div class="engagement-header">
+      <h3>Help us improve your experience</h3>
+      <button class="engagement-close" onclick="closeEngagementModal()">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="engagement-body">
+      <p class="engagement-subtitle">Share a bit about yourself (optional)</p>
+      
+      <div class="engagement-field">
+        <label for="engagement-age">
+          <i data-lucide="user"></i>
+          Age
+        </label>
+        <input type="number" id="engagement-age" placeholder="e.g., 25" min="1" max="120" />
+      </div>
+      
+      <div class="engagement-field">
+        <label for="engagement-job">
+          <i data-lucide="briefcase"></i>
+          Occupation
+        </label>
+        <input type="text" id="engagement-job" placeholder="e.g., Software Engineer" />
+      </div>
+      
+      <div class="engagement-field">
+        <label for="engagement-desire">
+          <i data-lucide="target"></i>
+          Main Interest
+        </label>
+        <input type="text" id="engagement-desire" placeholder="What brought you here?" />
+      </div>
+    </div>
+    <div class="engagement-footer">
+      <button class="engagement-skip" onclick="closeEngagementModal()">Skip</button>
+      <button class="engagement-submit" onclick="submitEngagement()">Submit</button>
+    </div>
+  `;
+  
+  document.body.appendChild(overlay);
+  document.body.appendChild(modal);
+  
+  console.log("✅ Modal elements added to DOM");
+  console.log("Overlay:", overlay);
+  console.log("Modal:", modal);
+  
+  // Store question data
+  window.currentEngagementQuestion = question;
+  
+  // Render icons
+  lucide.createIcons();
+  
+  // Animate in
+  setTimeout(() => {
+    overlay.classList.add('active');
+    modal.classList.add('active');
+    console.log("✅ Modal activated");
+  }, 10);
+}
+
+function closeEngagementModal() {
+  console.log("🚪 Closing engagement modal...");
+  
+  const overlay = document.getElementById('engagement-overlay');
+  const modal = document.querySelector('.engagement-modal');
+  
+  if (overlay) {
+    overlay.classList.remove('active');
+    setTimeout(() => overlay.remove(), 300);
+  }
+  
+  if (modal) {
+    modal.classList.remove('active');
+    setTimeout(() => modal.remove(), 300);
+  }
+  
+  console.log("✅ Modal closed");
+}
+
+async function submitEngagement() {
+  console.log("📤 Submitting engagement data...");
+  
+  const age = document.getElementById('engagement-age')?.value;
+  const job = document.getElementById('engagement-job')?.value;
+  const desire = document.getElementById('engagement-desire')?.value;
+  const question = window.currentEngagementQuestion;
+  
+  console.log("Data:", { age, job, desire, question });
+  
+  if (!question) {
+    console.warn("⚠️ No question data found");
+    closeEngagementModal();
+    return;
+  }
+  
+  try {
+    const payload = {
+      user_id: profile_id,
+      age: age || null,
+      job: job || null,
+      desires: desire ? [desire] : [],
+      question_clicked: question.q?.[lang] || question.q?.en,
+      service: currentServiceName
+    };
+    
+    console.log("📦 Sending payload:", payload);
+    
+    await fetch("/api/engagement", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    
+    console.log("✅ Engagement data logged successfully");
+  } catch (error) {
+    console.error("❌ Error logging engagement:", error);
+  }
+  
+  closeEngagementModal();
 }
 
 /* ---------------------------
@@ -221,7 +378,20 @@ async function sendChat() {
     });
     const data = await res.json();
     appendChat("bot", data.answer || "No answer found.");
-  } catch {
+    
+    // Log chat engagement
+    await fetch("/api/engagement", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        user_id: profile_id,
+        question_clicked: text,
+        service: "AI Chat",
+        source: "chat"
+      })
+    });
+  } catch (error) {
+    console.error("Chat error:", error);
     appendChat("bot", "Error contacting AI server.");
   }
 }
