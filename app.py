@@ -64,7 +64,7 @@ def home():
 def admin_page():
     if not session.get("admin_logged_in"):
         return redirect("/admin/login")
-    return render_template("admin.html")
+    return render_template("admin-dashboard.html")
 
 @app.route("/admin/manage")
 @admin_required
@@ -234,6 +234,12 @@ def search_vectors(query, top_k=5):
             idxs = np.argsort(sims)[::-1][:top_k]
             return [meta[int(i)] for i in idxs]
         return []
+    
+@app.route("/api/admin/engagements")
+@admin_required
+def admin_engagements():
+    items = list(eng_col.find({}, {"_id": 0}).sort("timestamp", -1).limit(500))
+    return jsonify(items)
 
 @app.route("/api/ai/search", methods=["POST"])
 def ai_search():
@@ -259,7 +265,7 @@ def ai_search():
 @app.route("/admin/login", methods=["GET","POST"])
 def admin_login():
     if request.method == "GET":
-        return render_template("admin.html")
+        return render_template("admin-login.html")
     
     data = request.form
     username = data.get("username")
