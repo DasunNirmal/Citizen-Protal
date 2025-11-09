@@ -40,17 +40,95 @@
     }
   },
   {
+    "doc_id": "ministry_it::digital_services::How to report a portal issue?",
+    "service_id": "ministry_it",
+    "subservice_id": "digital_services",
+    "title": "How to report a portal issue?",
+    "content": "Ministry of IT & Digital Affairs | Digital Services | How to report a portal issue? | Use the 'Report Issue' link on the portal or email support@services.gov.lk.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Attach screenshots and steps to reproduce the issue."
+    }
+  },
+  {
+    "doc_id": "ministry_it::open_data::How to request API access?",
+    "service_id": "ministry_it",
+    "subservice_id": "open_data",
+    "title": "How to request API access?",
+    "content": "Ministry of IT & Digital Affairs | Open Data & APIs | How to request API access? | Complete the API access form and provide a project description; approvals take up to 10 working days.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/api_access_form.pdf"
+      ],
+      "location": "https://maps.google.com/?q=Data+Center+Colombo",
+      "instructions": "Provide an example use-case and contact email."
+    }
+  },
+  {
+    "doc_id": "ministry_it::open_data::Are datasets free to use?",
+    "service_id": "ministry_it",
+    "subservice_id": "open_data",
+    "title": "Are datasets free to use?",
+    "content": "Ministry of IT & Digital Affairs | Open Data & APIs | Are datasets free to use? | Most datasets are open under the national open data policy; check the license on each dataset.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Cite the dataset ID when reusing."
+    }
+  },
+  {
+    "doc_id": "ministry_it::cyber_security::How to report a cyber incident?",
+    "service_id": "ministry_it",
+    "subservice_id": "cyber_security",
+    "title": "How to report a cyber incident?",
+    "content": "Ministry of IT & Digital Affairs | Cyber Security | How to report a cyber incident? | Contact the national CERT via cert@it.gov.lk and provide logs and incident time.",
+    "metadata": {
+      "downloads": [
+        "/static/guides/cyber_incident_checklist.pdf"
+      ],
+      "location": "",
+      "instructions": "Preserve logs and avoid powering off affected devices."
+    }
+  },
+  {
+    "doc_id": "ministry_it::cyber_security::Where to get cybersecurity training?",
+    "service_id": "ministry_it",
+    "subservice_id": "cyber_security",
+    "title": "Where to get cybersecurity training?",
+    "content": "Ministry of IT & Digital Affairs | Cyber Security | Where to get cybersecurity training? | See the trainings page on the ministry portal; scholarships are available for small businesses.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Apply through the training portal."
+    }
+  },
+  {
     "doc_id": "ministry_education::schools::How to register a school?",
     "service_id": "ministry_education",
     "subservice_id": "schools",
     "title": "How to register a school?",
-    "content": "Ministry of Education | Schools | How to register a school? | Complete registration form and submit documents to the Ministry.",
+    "content": "Ministry of Education | Schools | How to register a school? | Complete registration form and submit documents to the Ministry. Processing time is 30 days.",
     "metadata": {
       "downloads": [
         "/static/forms/school_reg.pdf"
       ],
       "location": "https://maps.google.com/?q=Ministry+of+Education+Colombo",
-      "instructions": "Processing time is 30 days."
+      "instructions": "Attach school layout, principal NIC copy and approval letters."
+    }
+  },
+  {
+    "doc_id": "ministry_education::schools::How to apply for teacher certification?",
+    "service_id": "ministry_education",
+    "subservice_id": "schools",
+    "title": "How to apply for teacher certification?",
+    "content": "Ministry of Education | Schools | How to apply for teacher certification? | Submit teaching qualifications, experience letters and complete the online application.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/teacher_cert.pdf"
+      ],
+      "location": "",
+      "instructions": "Original certificates may be requested for verification."
     }
   },
   {
@@ -58,11 +136,63 @@
     "service_id": "ministry_education",
     "subservice_id": "exams",
     "title": "How to check exam results?",
-    "content": "Ministry of Education | Exams & Results | How to check exam results? | Visit results.moe.gov.lk and enter your registration number.",
+    "content": "Ministry of Education | Exams & Results | How to check exam results? | Visit results.moe.gov.lk and enter your registration number. Results are released 6 weeks after the exam.",
     "metadata": {
       "downloads": [],
       "location": "",
-      "instructions": "Results are released 6 weeks after the exam."
+      "instructions": "Keep your registration number safe for checking."
+    }
+  },
+  {
+    "doc_id": "ministry_education::exams::How to appeal a result?",
+    "service_id": "ministry_education",
+    "subservice_id": "exams",
+    "title": "How to appeal a result?",
+    "content": "Ministry of Education | Exams & Results | How to appeal a result? | Submit an appeal form within 14 days with required documents and payment of fee.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/result_appeal.pdf"
+      ],
+      "location": "",
+      "instructions": "Provide a copy of the original question paper if requested."
+    }
+  },
+  {
+    "doc_id": "ministry_education::scholarships::Who is eligible for scholarships?",
+    "service_id": "ministry_education",
+    "subservice_id": "scholarships",
+    "title": "Who is eligible for scholarships?",
+    "content": "Ministry of Education | Scholarships & Grants | Who is eligible for scholarships? | Eligibility varies by program; most require academic merit and income proof.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/scholarship_app.pdf"
+      ],
+      "location": "",
+      "instructions": "Submit documents before the scholarship closing date."
+    }
+  },
+  {
+    "doc_id": "ministry_education::scholarships::How to apply for grants for schools?",
+    "service_id": "ministry_education",
+    "subservice_id": "scholarships",
+    "title": "How to apply for grants for schools?",
+    "content": "Ministry of Education | Scholarships & Grants | How to apply for grants for schools? | Fill the grant proposal form and attach the school budget and project plan.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Proposals are evaluated quarterly."
+    }
+  },
+  {
+    "doc_id": "ministry_education::adult_education::How to enrol in adult learning classes?",
+    "service_id": "ministry_education",
+    "subservice_id": "adult_education",
+    "title": "How to enrol in adult learning classes?",
+    "content": "Ministry of Education | Adult Education | How to enrol in adult learning classes? | Check local community centers or apply online for evening classes.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Many programs are free or low-cost."
     }
   },
   {
@@ -70,13 +200,347 @@
     "service_id": "ministry_health",
     "subservice_id": "health_services",
     "title": "How to register at a health center?",
-    "content": "Ministry of Health | Health Services | How to register at a health center? | Visit your nearest health center with NIC and proof of address.",
+    "content": "Ministry of Health | Health Services | How to register at a health center? | Visit your nearest health center with NIC and proof of address. Registration is free and can be completed in 15 minutes.",
     "metadata": {
       "downloads": [
         "/static/forms/health_reg.pdf"
       ],
       "location": "https://maps.google.com/?q=Health+Centers+Near+Me",
-      "instructions": "Registration is free and can be completed in 15 minutes."
+      "instructions": "Bring original NIC and a medical referral if you have one."
+    }
+  },
+  {
+    "doc_id": "ministry_health::health_services::How to get immunizations for children?",
+    "service_id": "ministry_health",
+    "subservice_id": "health_services",
+    "title": "How to get immunizations for children?",
+    "content": "Ministry of Health | Health Services | How to get immunizations for children? | Child immunizations are available at any government clinic; bring child health book and NIC of parent.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Follow the national immunization schedule."
+    }
+  },
+  {
+    "doc_id": "ministry_health::mental_health::How to access counselling services?",
+    "service_id": "ministry_health",
+    "subservice_id": "mental_health",
+    "title": "How to access counselling services?",
+    "content": "Ministry of Health | Mental Health Services | How to access counselling services? | Contact your nearest hospital psychiatric unit or call the mental health helpline.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "If emergency, go to the nearest ER immediately."
+    }
+  },
+  {
+    "doc_id": "ministry_health::mental_health::Are counselling services free?",
+    "service_id": "ministry_health",
+    "subservice_id": "mental_health",
+    "title": "Are counselling services free?",
+    "content": "Ministry of Health | Mental Health Services | Are counselling services free? | Basic counselling is free at government facilities; specialized therapy may have fees.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Check service details at the local health center."
+    }
+  },
+  {
+    "doc_id": "ministry_health::public_health_campaigns::How to find vaccination camps near me?",
+    "service_id": "ministry_health",
+    "subservice_id": "public_health_campaigns",
+    "title": "How to find vaccination camps near me?",
+    "content": "Ministry of Health | Public Health Campaigns | How to find vaccination camps near me? | Check the campaigns page on the ministry website or local health office notices.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Bring ID and follow instructions for mass vaccination days."
+    }
+  },
+  {
+    "doc_id": "ministry_health::public_health_campaigns::How are campaigns scheduled?",
+    "service_id": "ministry_health",
+    "subservice_id": "public_health_campaigns",
+    "title": "How are campaigns scheduled?",
+    "content": "Ministry of Health | Public Health Campaigns | How are campaigns scheduled? | Campaigns are scheduled regionally and published on the ministry calendar.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Subscribe to SMS alerts for your district."
+    }
+  },
+  {
+    "doc_id": "ministry_health::medical_records::How to get a medical certificate?",
+    "service_id": "ministry_health",
+    "subservice_id": "medical_records",
+    "title": "How to get a medical certificate?",
+    "content": "Ministry of Health | Medical Records & Certificates | How to get a medical certificate? | Request a medical certificate from the treating hospital; fees may apply for formal letters.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/medical_cert_request.pdf"
+      ],
+      "location": "",
+      "instructions": "Provide patient ID and date of visit."
+    }
+  },
+  {
+    "doc_id": "ministry_transport::vehicle_registration::How to register a vehicle?",
+    "service_id": "ministry_transport",
+    "subservice_id": "vehicle_registration",
+    "title": "How to register a vehicle?",
+    "content": "Ministry of Transport | Vehicle Registration | How to register a vehicle? | Submit proof of ownership, ID and road-worthiness certificate at the transport office.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/vehicle_reg.pdf"
+      ],
+      "location": "https://maps.google.com/?q=Transport+Office+Colombo",
+      "instructions": "Ensure the vehicle passes the inspection before submission."
+    }
+  },
+  {
+    "doc_id": "ministry_transport::vehicle_registration::How to transfer ownership?",
+    "service_id": "ministry_transport",
+    "subservice_id": "vehicle_registration",
+    "title": "How to transfer ownership?",
+    "content": "Ministry of Transport | Vehicle Registration | How to transfer ownership? | Both parties must sign the transfer form and settle any outstanding fines before transfer.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Bring original registration book and ID copies."
+    }
+  },
+  {
+    "doc_id": "ministry_transport::driver_licence::How to apply for a driving licence?",
+    "service_id": "ministry_transport",
+    "subservice_id": "driver_licence",
+    "title": "How to apply for a driving licence?",
+    "content": "Ministry of Transport | Driver Licence | How to apply for a driving licence? | Pass the learner test, complete driving lessons and submit medical and ID documents.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/driver_app.pdf"
+      ],
+      "location": "",
+      "instructions": "Learner permit valid for 6 months."
+    }
+  },
+  {
+    "doc_id": "ministry_transport::driver_licence::How to renew a licence?",
+    "service_id": "ministry_transport",
+    "subservice_id": "driver_licence",
+    "title": "How to renew a licence?",
+    "content": "Ministry of Transport | Driver Licence | How to renew a licence? | Apply online or at the licensing office before expiry and pay the renewal fee.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Bring current licence and ID."
+    }
+  },
+  {
+    "doc_id": "ministry_transport::public_transport::How to report a bus route issue?",
+    "service_id": "ministry_transport",
+    "subservice_id": "public_transport",
+    "title": "How to report a bus route issue?",
+    "content": "Ministry of Transport | Public Transport Services | How to report a bus route issue? | Use the transport complaints portal or call the public transport hotline.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Provide route number, time and vehicle details."
+    }
+  },
+  {
+    "doc_id": "ministry_transport::public_transport::How to get concessions?",
+    "service_id": "ministry_transport",
+    "subservice_id": "public_transport",
+    "title": "How to get concessions?",
+    "content": "Ministry of Transport | Public Transport Services | How to get concessions? | Senior citizens and students can apply at the transport office with ID and proof of status.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/concession_app.pdf"
+      ],
+      "location": "",
+      "instructions": "Concession cards issued after verification."
+    }
+  },
+  {
+    "doc_id": "ministry_transport::road_safety::How to report road hazards?",
+    "service_id": "ministry_transport",
+    "subservice_id": "road_safety",
+    "title": "How to report road hazards?",
+    "content": "Ministry of Transport | Road Safety & Regulations | How to report road hazards? | Call the road safety hotline or use the mobile reporting app with photos and location.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Do not try to clear hazards yourself — report to authorities."
+    }
+  },
+  {
+    "doc_id": "ministry_finance::tax_registration::How to register for tax?",
+    "service_id": "ministry_finance",
+    "subservice_id": "tax_registration",
+    "title": "How to register for tax?",
+    "content": "Ministry of Finance & Tax | Tax Registration | How to register for tax? | Register online via the revenue portal with identity documents and business details.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/tax_reg.pdf"
+      ],
+      "location": "https://maps.google.com/?q=Revenue+Department+Colombo",
+      "instructions": "Keep your TIN for future filings."
+    }
+  },
+  {
+    "doc_id": "ministry_finance::tax_registration::Who must register?",
+    "service_id": "ministry_finance",
+    "subservice_id": "tax_registration",
+    "title": "Who must register?",
+    "content": "Ministry of Finance & Tax | Tax Registration | Who must register? | Individuals with income above the threshold and all businesses must register.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Check threshold updates on the revenue website."
+    }
+  },
+  {
+    "doc_id": "ministry_finance::tax_filing::How to file taxes online?",
+    "service_id": "ministry_finance",
+    "subservice_id": "tax_filing",
+    "title": "How to file taxes online?",
+    "content": "Ministry of Finance & Tax | Tax Filing & Payments | How to file taxes online? | Use the revenue online portal, upload required documents and submit payment through available methods.",
+    "metadata": {
+      "downloads": [
+        "/static/guides/tax_filing_guide.pdf"
+      ],
+      "location": "",
+      "instructions": "Retain receipts and acknowledgement numbers."
+    }
+  },
+  {
+    "doc_id": "ministry_finance::tax_filing::What are payment options?",
+    "service_id": "ministry_finance",
+    "subservice_id": "tax_filing",
+    "title": "What are payment options?",
+    "content": "Ministry of Finance & Tax | Tax Filing & Payments | What are payment options? | Credit/debit card, bank transfer and designated payment agents are accepted.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Payments must be made before due date to avoid penalties."
+    }
+  },
+  {
+    "doc_id": "ministry_finance::grants_subsidies::How to apply for a business grant?",
+    "service_id": "ministry_finance",
+    "subservice_id": "grants_subsidies",
+    "title": "How to apply for a business grant?",
+    "content": "Ministry of Finance & Tax | Grants & Subsidies | How to apply for a business grant? | Submit a proposal with financials; evaluation committee meets monthly.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/grant_app.pdf"
+      ],
+      "location": "",
+      "instructions": "Include recent audited accounts if available."
+    }
+  },
+  {
+    "doc_id": "ministry_finance::grants_subsidies::Are subsidies means-tested?",
+    "service_id": "ministry_finance",
+    "subservice_id": "grants_subsidies",
+    "title": "Are subsidies means-tested?",
+    "content": "Ministry of Finance & Tax | Grants & Subsidies | Are subsidies means-tested? | Some subsidies are means-tested; check specific program requirements.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Provide income proof if requested."
+    }
+  },
+  {
+    "doc_id": "ministry_finance::public_spending::Where to find the national budget?",
+    "service_id": "ministry_finance",
+    "subservice_id": "public_spending",
+    "title": "Where to find the national budget?",
+    "content": "Ministry of Finance & Tax | Public Spending & Budgets | Where to find the national budget? | The national budget and spending reports are published on the finance ministry website.",
+    "metadata": {
+      "downloads": [
+        "/static/reports/national_budget.pdf"
+      ],
+      "location": "",
+      "instructions": "Use published CSVs for data analysis where provided."
+    }
+  },
+  {
+    "doc_id": "ministry_housing::land_registration::How to register land?",
+    "service_id": "ministry_housing",
+    "subservice_id": "land_registration",
+    "title": "How to register land?",
+    "content": "Ministry of Housing & Land | Land Registration | How to register land? | Submit title deeds, surveys and ID to the land registry; registration time varies by district.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/land_reg.pdf"
+      ],
+      "location": "https://maps.google.com/?q=Land+Registry+Colombo",
+      "instructions": "Ensure survey plans are certified by a licensed surveyor."
+    }
+  },
+  {
+    "doc_id": "ministry_housing::land_registration::How to check title disputes?",
+    "service_id": "ministry_housing",
+    "subservice_id": "land_registration",
+    "title": "How to check title disputes?",
+    "content": "Ministry of Housing & Land | Land Registration | How to check title disputes? | Visit the land registry or use the online title search service to see encumbrances.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Keep transaction receipts and surveyor certificates."
+    }
+  },
+  {
+    "doc_id": "ministry_housing::housing_allocations::How to apply for subsidized housing?",
+    "service_id": "ministry_housing",
+    "subservice_id": "housing_allocations",
+    "title": "How to apply for subsidized housing?",
+    "content": "Ministry of Housing & Land | Housing Allocations | How to apply for subsidized housing? | Submit an application with income proof; shortlisting is done based on criteria and availability.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/housing_app.pdf"
+      ],
+      "location": "",
+      "instructions": "Include family size and current address proof."
+    }
+  },
+  {
+    "doc_id": "ministry_housing::housing_allocations::Can I transfer allocated housing?",
+    "service_id": "ministry_housing",
+    "subservice_id": "housing_allocations",
+    "title": "Can I transfer allocated housing?",
+    "content": "Ministry of Housing & Land | Housing Allocations | Can I transfer allocated housing? | Transfers are restricted; apply to the housing authority with valid reasons and documents.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Provide supporting legal documents for transfers."
+    }
+  },
+  {
+    "doc_id": "ministry_housing::building_permits::How to apply for a building permit?",
+    "service_id": "ministry_housing",
+    "subservice_id": "building_permits",
+    "title": "How to apply for a building permit?",
+    "content": "Ministry of Housing & Land | Building Permits | How to apply for a building permit? | Submit plans certified by an architect, land documents and pay the assessment fee.",
+    "metadata": {
+      "downloads": [
+        "/static/forms/building_permit.pdf"
+      ],
+      "location": "",
+      "instructions": "Allow time for environmental and safety clearances."
+    }
+  },
+  {
+    "doc_id": "ministry_housing::land_tax::How to pay land tax?",
+    "service_id": "ministry_housing",
+    "subservice_id": "land_tax",
+    "title": "How to pay land tax?",
+    "content": "Ministry of Housing & Land | Land Tax & Rates | How to pay land tax? | Pay via the local council portal or at designated revenue centers; keep the receipt.",
+    "metadata": {
+      "downloads": [],
+      "location": "",
+      "instructions": "Check deadlines to avoid interest/penalties."
     }
   }
 ]
